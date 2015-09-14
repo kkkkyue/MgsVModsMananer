@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MgsVModsMananer"
         mc:Ignorable="d"
-        Title="" Height="350" Width="419.895">
+        Title="合金装备V:幻痛MOD管理器 by kkkkyue" Height="458.621" Width="419.895" WindowStartupLocation="CenterScreen" Icon="ico.ico">
     <Grid>
-        <StatusBar Height="28" Margin="0" VerticalAlignment="Bottom"/>
-        <Grid Margin="0,0,0,28">
+        <StatusBar Height="30" Margin="0" VerticalAlignment="Bottom">
+            <Label x:Name="label" Content="支持:合金装备贴吧|QQ群:477562528" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="343"/>
+        </StatusBar>
+        <Grid Margin="0,0,0,30">
             <ToolBar x:Name="toolBar" Margin="0,0,0,0" VerticalAlignment="Top" Height="30">
                 <Button Content="下载MOD"></Button>
+                <Button x:Name="makeModButton" Content="自制MOD" Margin="0,2" Click="makeModButton_Click"/>
             </ToolBar>
             <Grid Margin="0,30,0,40">
                 <ListBox x:Name="modlistBox" Margin="0,20" Width="180" HorizontalAlignment="Left">
 
                 </ListBox>
                 <StackPanel Margin="196,20,20,20">
-                    <Grid Height="100">
+                    <Grid Height="30">
                         <Label x:Name="modNamelabel" Content="" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
                     </Grid>
                     <Grid Height="100">
@@ -25,7 +28,9 @@
                     </Grid>
                 </StackPanel>
             </Grid>
-            <Button x:Name="button" Content="Button" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" Width="75"/>
+            <Button x:Name="applyButton" Content="应用" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="75" Click="applyButton_Click"/>
+            <Button x:Name="clearbutton" Content="一键还原" HorizontalAlignment="Right" Margin="0,0,112,10" VerticalAlignment="Bottom" Width="75" Click="clearbutton_Click"/>
+            
 
         </Grid>
 

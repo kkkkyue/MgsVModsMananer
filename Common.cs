@@ -12,8 +12,16 @@ namespace MgsVModsMananer
 
         public static string RQToolDicPath = AppDomain.CurrentDomain.BaseDirectory + "QAR_Tool\\";
 
-        public static string Data1FilePath = "master/data1.dat";
+        public static string Data1FilePath = "master\\data1.dat";
 
-        public static string Data1InfFilePath = "master/data1.inf";
+        public static string Data1InfFilePath = "master\\data1.inf";
+
+        public static string MasterDicPath = (AppDomain.CurrentDomain.BaseDirectory + "master\\").Replace('/', '\\');
+
+        public static string BackupDicPath = (AppDomain.CurrentDomain.BaseDirectory + "backups\\").Replace('/', '\\');
+
+        public static Dictionary<string, ModItemControl> Modfiles = new Dictionary<string, ModItemControl>();
+
+        public static Dictionary<string, ModItemControl> ModSelectedfiles = new Dictionary<string, ModItemControl>();
     }
 }

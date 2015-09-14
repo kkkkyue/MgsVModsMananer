@@ -59,5 +59,42 @@ namespace MgsVModsMananer
                 itemLable.Content = value;
             }
         }
+
+        private void checkBox_Checked(object sender, RoutedEventArgs e)
+        {
+           var list= ZipHelper.GetFileList(DataContext.ToString());
+            foreach(var file in list)
+            {
+                if (Common.Modfiles.FirstOrDefault(u=>u.Key== file).Value==null)
+                {
+                    Common.Modfiles.Add(file, this);
+                }
+                else
+                {
+                    Common.Modfiles[file].IsRed = true;
+                    CheckBox cb = sender as CheckBox;
+                    cb.IsChecked = false;
+                   
+                    return;
+                }
+            }
+
+            Common.ModSelectedfiles.Add(DataContext.ToString(), this);
+        }
+
+        private void checkBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            var list = ZipHelper.GetFileList(DataContext.ToString());
+            foreach (var selectedfile in list)
+            {
+                if (Common.Modfiles.FirstOrDefault(u => u.Key == selectedfile).Value != null& Common.Modfiles.FirstOrDefault(u => u.Key == selectedfile).Value==this)
+                {
+                    Common.Modfiles.Remove(selectedfile);
+                }
+
+            }
+            IsRed = false;
+            Common.ModSelectedfiles.Remove(DataContext.ToString());
+        }
     }
 }

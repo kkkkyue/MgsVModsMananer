@@ -229,6 +229,31 @@ namespace MgsVModsMananer
 
         #endregion
 
+        public static List<string> GetFileList(string zipfile)
+        {
+            List<string> list = new List<string>();
+            ZipEntry ent = null;
+            ZipInputStream zipStream = new ZipInputStream(File.OpenRead(zipfile));
+            while ((ent = zipStream.GetNextEntry()) != null)
+            {
+                if (ent.IsFile)
+                {
+                    if (ent.Name == "config.json")
+                    {
+                        //Directory.CreateDirectory(fileName);
+                        continue;
+                    }
+
+                    list.Add(ent.Name);
+                }
+            }
+            if (zipStream!=null)
+            {
+                zipStream.Close();
+            }
+            return list;
+        }
+
         #region 解压
 
         /// <summary> 
@@ -275,6 +300,24 @@ namespace MgsVModsMananer
                         {
                             //Directory.CreateDirectory(fileName);
                             continue;
+                        }
+
+                        if (ent.IsFile)
+                        {
+                            //Directory.CreateDirectory(fileName);
+                            if (!File.Exists(Common.BackupDicPath+ ent.Name))
+                            {
+                                FileInfo fi = new FileInfo(Common.MasterDicPath + ent.Name);
+                                //fi.
+                                string backuppath = (Common.BackupDicPath + ent.Name);
+                                backuppath = backuppath.Remove(backuppath.LastIndexOf('/'));
+                                if (!Directory.Exists(backuppath))
+                                {
+                                    Directory.CreateDirectory(backuppath);
+                                }
+                                File.Copy(Common.MasterDicPath + ent.Name, Common.BackupDicPath + ent.Name);
+                            }
+                            //continue;
                         }
 
                         fs = File.Create(fileName);
