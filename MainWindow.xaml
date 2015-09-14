@@ -12,7 +12,7 @@
             <ToolBar x:Name="toolBar" Margin="0,0,0,0" VerticalAlignment="Top" Height="30">
                 <Button Content="下载MOD"></Button>
             </ToolBar>
-            <Grid Margin="0,30,0,0">
+            <Grid Margin="0,30,0,40">
                 <ListBox x:Name="modlistBox" Margin="0,20" Width="180" HorizontalAlignment="Left">
 
                 </ListBox>
@@ -25,6 +25,7 @@
                     </Grid>
                 </StackPanel>
             </Grid>
+            <Button x:Name="button" Content="Button" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" Width="75"/>
 
         </Grid>
 
