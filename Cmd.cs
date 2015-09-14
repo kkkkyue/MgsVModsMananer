@@ -49,6 +49,7 @@ namespace MgsVModsMananer
             Process proc = new Process();
             proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.FileName = programName;
+           // proc.StartInfo.WorkingDirectory = Common.RQToolDicPath;
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardError = true;
             proc.StartInfo.RedirectStandardInput = true;
